@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
+<title>Meiern</title>
+<style type="text/css">
+#uebers {
+font-size:200%;
+}
+.links { 
+float:left;
+width:100px;
+}
+.schreib {
+font-align:center;
+}
+BR { clear: left }
+</style>
+<script>
+
+        var zahl1, zahl2, dummy, ausgabe, txt;
+ var gewuerfelt = 0;
+var halter = ' ';
+ 
+
+function GetRandom () {
+zahl1 = 0;
+zahl2 = 0;
+zahl1 = Math.floor(Math.random()*6+1);
+zahl2 = Math.floor(Math.random()*6+1);
+if (zahl2 > zahl1) {
+	dummy = zahl1;
+	zahl1 = zahl2;
+	zahl2 = dummy;
+  } else {
+  };
+  zahl1 = zahl1*10;
+  ausgabe = zahl1 + zahl2;
+  var txt=document.getElementById("zahlen");
+  txt.innerHTML=ausgabe ;
+  document.getElementById("bdy").style.background = "red";
+  var txt=document.getElementById("text");
+  txt.innerHTML='';
+	};
+	
+	
+function Weiter () {
+var txt=document.getElementById("zahlen");
+txt.innerHTML='';
+var txt=document.getElementById("text");
+txt.innerHTML='weiter';
+document.getElementById("bdy").style.background = "green";
+}
+
+function Aufdecken () {
+var txt=document.getElementById("zahlen");
+txt.innerHTML=ausgabe;
+var txt=document.getElementById("text");
+txt.innerHTML='';
+document.getElementById("bdy").style.background = "white";
+}
+
+</script>
+</head>
+
+<body id="bdy">
+<div align="center">
+<p id="uebers">- Meiern -</p>
+
+<div onClick=GetRandom()><img src=dice.gif class="links" ></div>
+<div onClick=Weiter()><img src=weiter.gif class="links" ></div>
+<div onClick=Aufdecken()><img src=aufdecken.gif class="links" ></div>
+
+<div class="schreib">
+<br>
+<div id="zahlen"></div>
+<div id="text"></div>
+</div>
+</div>
+
+</body>
+</html>
